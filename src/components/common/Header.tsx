@@ -20,19 +20,25 @@ const Header: React.FC<HeaderProps> = ({ title, onSettingsPress }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 10,
+    paddingTop: 60,
+    paddingBottom: 40,
+    position: 'relative',
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: '300',
     color: '#FFFFFF',
-    letterSpacing: 2,
+    letterSpacing: 4,
+    textAlign: 'center',
+    flex: 1,
   },
   settingsButton: {
+    position: 'absolute',
+    right: 20,
+    top: 60,
     padding: 8,
   },
   settingsIcon: {

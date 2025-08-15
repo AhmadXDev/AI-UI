@@ -13,10 +13,10 @@ const GradientBackground: React.FC<GradientBackgroundProps> = ({
 }) => {
   return (
     <LinearGradient
-      colors={['#8B5CF6', '#EC4899', '#F97316']} // Purple to pink to orange gradient
+      colors={['#9333EA', '#E879F9', '#FB7185', '#F97316']} // More vibrant purple to pink to coral gradient
       style={[styles.container, style]}
       start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      end={{ x: 0, y: 1 }}
     >
       {children}
     </LinearGradient>
