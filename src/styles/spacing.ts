@@ -15,16 +15,16 @@ export const layout = {
   componentSpacing: spacing.md,
   
   // Avatar sizes
-  avatarSize: 60,
+  avatarSize: 56,
   avatarSpacing: spacing.sm,
   
   // Button dimensions
-  buttonHeight: 52,
-  buttonRadius: 26,
+  buttonHeight: 50,
+  buttonRadius: 25,
   
   // Header dimensions
   headerHeight: 60,
   
   // Bottom navigation
-  bottomNavHeight: 80,
+  bottomNavHeight: 84,
 } as const;

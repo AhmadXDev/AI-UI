@@ -12,10 +12,10 @@ const AVATAR_DATA = [
 ];
 
 const TAB_DATA = [
-  { id: 'journal', label: 'Journal', icon: '●' },
-  { id: 'progress', label: 'Progress', icon: '◐' },
-  { id: 'friends', label: 'Friends', icon: '●●' },
-  { id: 'upgrade', label: 'Upgrade', icon: '●', hasNotification: true },
+  { id: 'journal', label: 'Journal', icon: '○' },
+  { id: 'progress', label: 'Progress', icon: '◑' },
+  { id: 'friends', label: 'Friends', icon: '👥' },
+  { id: 'upgrade', label: 'Upgrade', icon: '✦', hasNotification: true },
   { id: 'settings', label: 'Settings', icon: '⚙' },
 ];
 
@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: layout.screenPadding,
   },
   avatarSection: {
-    paddingVertical: spacing.xxl,
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.md,
   },
   avatarRow: {
     flexDirection: 'row',
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: spacing.lg,
     paddingBottom: spacing.xxl,
   },
   mainTitle: {
@@ -120,15 +122,15 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     textAlign: 'center',
     marginBottom: spacing.lg,
-    lineHeight: typography.xlarge * typography.lineHeights.tight,
+    lineHeight: typography.xlarge * 1.1,
   },
   description: {
     fontSize: typography.regular,
     fontWeight: typography.weights.regular,
     color: colors.textSecondary,
     textAlign: 'center',
-    lineHeight: typography.regular * typography.lineHeights.relaxed,
+    lineHeight: typography.regular * 1.5,
     marginBottom: spacing.xxl,
-    paddingHorizontal: spacing.md,
+    maxWidth: 300,
   },
 });

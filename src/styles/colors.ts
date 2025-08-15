@@ -1,19 +1,19 @@
 export const colors = {
   // Main theme colors
-  background: '#2B2B2B',
-  surface: '#3A3A3A',
-  primary: '#4F8EF7',
+  background: '#1E1E1E',
+  surface: '#2A2A2A',
+  primary: '#4A90E2',
   
   // Text colors
   textPrimary: '#FFFFFF',
-  textSecondary: '#A0A0A0',
+  textSecondary: '#8E8E93',
   
   // UI colors
   buttonBackground: '#FFFFFF',
   buttonText: '#000000',
-  iconActive: '#4F8EF7',
-  iconInactive: '#666666',
+  iconActive: '#4A90E2',
+  iconInactive: '#8E8E93',
   
   // Border colors
-  border: '#404040',
+  border: '#38383A',
 } as const;

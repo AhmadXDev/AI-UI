@@ -1,10 +1,3 @@
-/**
- * AI-UI Circle Screen Implementation
- * https://github.com/AhmadXDev/AI-UI
- *
- * @format
- */
-
 import React from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import {
@@ -16,7 +9,7 @@ import { CircleScreen } from './src/screens';
 function App() {
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="light-content" backgroundColor="#2B2B2B" />
+      <StatusBar barStyle="light-content" backgroundColor="#1E1E1E" />
       <AppContent />
     </SafeAreaProvider>
   );
