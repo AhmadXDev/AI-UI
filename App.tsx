@@ -1,23 +1,22 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * AI-UI Circle Screen Implementation
+ * https://github.com/AhmadXDev/AI-UI
  *
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import React from 'react';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { CircleScreen } from './src/screens';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle="light-content" backgroundColor="#2B2B2B" />
       <AppContent />
     </SafeAreaProvider>
   );
@@ -27,11 +26,8 @@ function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+    <View style={[styles.container, { paddingTop: safeAreaInsets.top }]}>
+      <CircleScreen />
     </View>
   );
 }
