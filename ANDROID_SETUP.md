@@ -54,6 +54,28 @@ npx react-native start --reset-cache
 lsof -ti:8081 | xargs kill -9
 ```
 
+#### HTTP 500 Server Errors
+
+If you see "The development server returned response error code: 500":
+
+```bash
+# 1. Clear Metro cache completely
+npx react-native start --reset-cache
+
+# 2. Clean node modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+
+# 3. Clear temporary files
+rm -rf /tmp/metro-*
+rm -rf /tmp/react-*
+
+# 4. Start fresh Metro instance
+npx react-native start --reset-cache
+```
+
+This error typically indicates a Metro configuration issue or corrupted cache.
+
 ### 4. Android Build Issues
 
 #### Clean Android Build:

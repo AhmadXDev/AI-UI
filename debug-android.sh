@@ -12,8 +12,12 @@ METRO_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8081/stat
 
 if [ "$METRO_STATUS" = "200" ]; then
     echo "✅ Metro bundler is running on port 8081"
+elif [ "$METRO_STATUS" = "500" ]; then
+    echo "⚠️  Metro bundler is running but returning HTTP 500 errors"
+    echo "💡 This indicates a configuration or cache issue"
+    echo "💡 Try: npx react-native start --reset-cache"
 else
-    echo "❌ Metro bundler is not running"
+    echo "❌ Metro bundler is not running (Status: $METRO_STATUS)"
     echo "💡 Starting Metro bundler..."
     echo "Run: npx react-native start --reset-cache"
 fi
@@ -83,7 +87,10 @@ echo ""
 echo "4. Run Android app:"
 echo "   npx react-native run-android"
 echo ""
-echo "5. If using physical device over Wi-Fi:"
+echo "5. Fix HTTP 500 errors (configuration/cache issues):"
+echo "   rm -rf /tmp/metro-* && npx react-native start --reset-cache"
+echo ""
+echo "6. If using physical device over Wi-Fi:"
 echo "   Find your computer's IP address and set in app:"
 echo "   Settings → Debug server host → YOUR_IP:8081"
 echo ""
