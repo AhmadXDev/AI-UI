@@ -36,29 +36,34 @@ export const Button: React.FC<ButtonProps> = ({
   iconPosition = 'left',
   testID,
 }) => {
-  const getButtonStyle = (): ViewStyle[] => {
-    const baseStyle = [styles.button, styles[size]];
+  const getButtonStyle = (): ViewStyle => {
+    const baseStyle: ViewStyle = {
+      ...styles.button,
+      ...styles[size],
+    };
     
     switch (variant) {
       case 'primary':
-        baseStyle.push(styles.primary);
-        break;
+        return { ...baseStyle, ...styles.primary };
       case 'secondary':
-        baseStyle.push(styles.secondary);
-        break;
+        return { ...baseStyle, ...styles.secondary };
       case 'outline':
-        baseStyle.push(styles.outline);
-        break;
+        return { ...baseStyle, ...styles.outline };
       case 'ghost':
-        baseStyle.push(styles.ghost);
-        break;
+        return { ...baseStyle, ...styles.ghost };
+      default:
+        return { ...baseStyle, ...styles.primary };
     }
+  };
 
+  const getFinalStyle = (): ViewStyle => {
+    let buttonStyle = getButtonStyle();
+    
     if (disabled) {
-      baseStyle.push(styles.disabled);
+      buttonStyle = { ...buttonStyle, ...styles.disabled };
     }
-
-    return baseStyle;
+    
+    return buttonStyle;
   };
 
   const getTextColor = (): string => {
@@ -86,7 +91,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
-      style={[...getButtonStyle(), style]}
+      style={[getFinalStyle(), style]}
       onPress={handlePress}
       disabled={disabled || loading}
       activeOpacity={disabled ? 1 : 0.7}
@@ -106,11 +111,11 @@ export const Button: React.FC<ButtonProps> = ({
             variant="body"
             weight="600"
             color={getTextColor()}
-            style={[
-              icon && iconPosition === 'left' && { marginLeft: spacing.sm },
-              icon && iconPosition === 'right' && { marginRight: spacing.sm },
+            style={StyleSheet.flatten([
+              icon && iconPosition === 'left' ? { marginLeft: spacing.sm } : null,
+              icon && iconPosition === 'right' ? { marginRight: spacing.sm } : null,
               textStyle,
-            ]}
+            ].filter(Boolean))}
           >
             {title}
           </CustomText>

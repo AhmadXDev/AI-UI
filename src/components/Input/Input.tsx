@@ -81,12 +81,12 @@ export const Input: React.FC<InputProps> = ({
         {leftIcon && <View style={styles.leftIcon}>{leftIcon}</View>}
         
         <TextInput
-          style={[
+          style={StyleSheet.flatten([
             styles.input,
-            leftIcon && { marginLeft: spacing.sm },
-            rightIcon && { marginRight: spacing.sm },
+            leftIcon ? { marginLeft: spacing.sm } : null,
+            rightIcon ? { marginRight: spacing.sm } : null,
             inputStyle,
-          ]}
+          ].filter(Boolean))}
           placeholder={placeholder}
           placeholderTextColor={colors.textSecondary}
           value={value}
